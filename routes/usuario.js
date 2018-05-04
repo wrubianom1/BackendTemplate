@@ -50,7 +50,7 @@ app.get('/', (req, res, next) => {
 // ==========================================
 // Actualizar usuario
 // ==========================================
-app.put('/:id', (req, res) => {
+app.put('/:id', mdAutenticacion.verificaToken, (req, res) => {
 
     var id = req.params.id;
     var body = req.body;
@@ -107,7 +107,7 @@ app.put('/:id', (req, res) => {
 // ==========================================
 // Crear un nuevo usuario
 // ==========================================
-app.post('/', (req, res) => {
+app.post('/', mdAutenticacion.verificaToken, (req, res) => {
 
     var body = req.body;
 
